@@ -16,7 +16,6 @@ void uartDataStorage(uint8_t *rxTempBuffer){
 
 	if(uartData.rxBuffer[uartData.rxIndex] == '\n'){	/* bir data gelmiş demektir. buffer'da okunması gereken data var. */
 		uartData.newDataFlag = 1;
-		getUartMessage(&uartData);
 	}
 	uartData.rxIndex++;
 
@@ -35,7 +34,8 @@ char getUartMessage(struct uartDataStr *uartData){
 			uartData->newDataLine[newDataLineCounter++] = (char) uartData->rxBuffer[i];
 		}
 		uartData->rxIndex = 0;
-		uartData->newData = 0;
+		uartData->newDataFlag = 0;
+
 
 		free(uartData->newDataLine);
 	}

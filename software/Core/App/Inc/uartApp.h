@@ -27,7 +27,6 @@ struct uartDataStr{
 	uint8_t newDataFlag;
 
 	char *newDataLine;		/* gelen verileri ayrıstırma icin kullanılacak degeskenler  */
-	uint8_t newData;
 };
 
 
