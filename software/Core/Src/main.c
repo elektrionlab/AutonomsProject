@@ -23,12 +23,13 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "uartTransport.h"
+#include "uartApp.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
+extern struct uartDataStr uartData;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -87,7 +88,7 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-
+  uartReceiveIT();
   /* USER CODE END 2 */
 
   /* Infinite loop */
