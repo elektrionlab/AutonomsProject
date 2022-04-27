@@ -6,19 +6,8 @@
  */
 
 #include "uartApp.h"
-
-struct uartConfig{
-	uint32_t BaudRate;
-	uint32_t WordLength;
-	uint32_t Parity;
-	uint32_t StopBits;
-}uartConfig;
-
-struct uartDataStr{
-	uint8_t	rxBuffer[rxBufferSize];
-	uint8_t	rxIndex;
-	uint8_t newDataFlag;
-}uartData;
+#include "stdlib.h"
+struct uartDataStr uartData;
 
 
 void uartDataStorage(uint8_t *rxTempBuffer){
@@ -27,10 +16,48 @@ void uartDataStorage(uint8_t *rxTempBuffer){
 
 	if(uartData.rxBuffer[uartData.rxIndex] == '\n'){	/* bir data gelmiş demektir. buffer'da okunması gereken data var. */
 		uartData.newDataFlag = 1;
+		getUartMessage(&uartData);
 	}
-	uartData.rxIndex++; /* ring buffer gibi */
+	uartData.rxIndex++;
 
 	if(uartData.rxIndex == (rxBufferSize-1))
 		uartData.rxIndex = 0;
 }
+
+char getUartMessage(struct uartDataStr *uartData){
+
+	if(uartData->newDataFlag == 1){
+
+		uint8_t newDataLineCounter = 0;
+		uartData->newDataLine = (char*) calloc(uartData->rxIndex+1, sizeof(char));
+
+		for(uint8_t i = uartData->rxIndexOld; i < uartData->rxIndex; i++){
+			uartData->newDataLine[newDataLineCounter++] = (char) uartData->rxBuffer[i];
+		}
+		uartData->rxIndex = 0;
+		uartData->newData = 0;
+
+		free(uartData->newDataLine);
+	}
+
+	return *uartData->newDataLine;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

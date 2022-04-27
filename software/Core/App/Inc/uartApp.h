@@ -12,7 +12,31 @@
 
 #define rxBufferSize	20
 
+
+struct uartConfig{
+	uint32_t BaudRate;
+	uint32_t WordLength;
+	uint32_t Parity;
+	uint32_t StopBits;
+};
+
+struct uartDataStr{
+	uint8_t	rxBuffer[rxBufferSize];
+	uint8_t	rxIndex;
+	uint8_t rxIndexOld;
+	uint8_t newDataFlag;
+
+	char *newDataLine;		/* gelen verileri ayrıstırma icin kullanılacak degeskenler  */
+	uint8_t newData;
+};
+
+
+char getUartMessage(struct uartDataStr *uartData);
+
+
 void uartDataStorage(uint8_t *rxTempBuffer);
+
+
 
 
 #endif /* APP_INC_UARTAPP_H_ */
