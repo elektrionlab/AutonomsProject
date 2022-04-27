@@ -22,6 +22,9 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 
 }
 
+void uartTransmitData(uint8_t *data, uint16_t size){
+	HAL_UART_Transmit(&huart2, data, size, 100);
+}
 
 
 

@@ -98,7 +98,9 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  getUartMessage(&uartData);
+	  getUartMessage(&uartData,1);
+	  //echoMessage(&uartData);
+	//  resetNewDataFlag();
   }
   /* USER CODE END 3 */
 }

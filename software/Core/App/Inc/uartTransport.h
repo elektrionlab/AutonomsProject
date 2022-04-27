@@ -17,6 +17,7 @@
 
 extern UART_HandleTypeDef uartHandleTypeDef;
 
+void uartTransmitData(uint8_t *data, uint16_t size);
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart);
 void uartReceiveIT();
 

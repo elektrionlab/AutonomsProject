@@ -29,10 +29,9 @@ struct uartDataStr{
 	char *newDataLine;		/* gelen verileri ayrıstırma icin kullanılacak degeskenler  */
 };
 
-
-char getUartMessage(struct uartDataStr *uartData);
-
-
+void resetNewDataFlag();
+void echoMessage(struct uartDataStr *uartData);
+char getUartMessage(struct uartDataStr *uartData, uint8_t echoMode);
 void uartDataStorage(uint8_t *rxTempBuffer);
 
 
