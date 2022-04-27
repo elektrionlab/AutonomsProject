@@ -11,6 +11,8 @@
 #include "main.h"
 
 #define rxBufferSize	20
+#define ECHO	1
+#define NO_ECHO 0
 
 
 struct uartConfig{
