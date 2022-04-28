@@ -9,20 +9,41 @@
 #include "system.h"
 #include "gpio.h"
 #include "string.h"
+#include "stdlib.h"
+#include "stdio.h"
 
 extern struct System controlSystem;
+
+char *parsedData[3];
+int ledTime;
 
 void task2(){ // dataların parse edilmesi ve ilgili ayarların yapılması
 
 	if(!strcmp(controlSystem.uartMessageData, "stop\r\n\0")){
+		controlSystem.echoType = 0;
+		controlSystem.systemState = 0;
+	}
+	else if(!strcmp(controlSystem.uartMessageData, "start\r\n\0") || controlSystem.systemState == 1){
+		controlSystem.echoType = 1;
+		controlSystem.systemState = 1;
 
+		int i = 0;
+		char *p = strtok(controlSystem.uartMessageData, "=");
 
+		while(p != NULL){
+			parsedData[i++] = p;
+			p = strtok(NULL, "=");
+		}
 
-		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
+		if(!strcmp(parsedData[0], "ledon")){
+			controlSystem.ledOnTime =  atoi(parsedData[1]);
+		}
+		else if(!strcmp(parsedData[0], "ledoff")){
+			controlSystem.ledOffTime = atoi(parsedData[1]);
+		}
 	}
 
-	else
-		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
+		//HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
 
 }
 

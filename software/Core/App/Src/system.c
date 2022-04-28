@@ -13,7 +13,8 @@ struct System controlSystem;
 void UserSystemInit(void){
 	controlSystem.ledOnTime = 300;
 	controlSystem.ledOffTime = 700;
-	controlSystem.echoType = 1;	// echo yapıyor
 
+	controlSystem.echoType = 1;	// echo yapıyor
+	controlSystem.systemState = 1;
 
 }
