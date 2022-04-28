@@ -13,12 +13,29 @@
 #include "stdio.h"
 
 extern struct System controlSystem;
+extern struct uartDataStr uartData;
 
 char *parsedData[3];
 int ledTime;
 
-void task2(){ // dataların parse edilmesi ve ilgili ayarların yapılması
+void task2(){
 
+	getUartMessage(&uartData);
+	dataParser();
+	echoTask();
+
+
+
+}
+
+void echoTask(){
+	if(controlSystem.echoType == 1){
+		echoMessage(&uartData);
+	}
+}
+
+void dataParser(){
+	// dataların parse edilmesi ve ilgili ayarların yapılması
 	if(!strcmp(controlSystem.uartMessageData, "stop\r\n\0")){
 		controlSystem.echoType = 0;
 		controlSystem.systemState = 0;
@@ -42,9 +59,7 @@ void task2(){ // dataların parse edilmesi ve ilgili ayarların yapılması
 			controlSystem.ledOffTime = atoi(parsedData[1]);
 		}
 	}
-
-		//HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
-
+	else{
+		// TODO:
+	}
 }
-
-

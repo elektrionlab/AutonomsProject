@@ -39,11 +39,12 @@ char getUartMessage(struct uartDataStr *uartData){
 			uartData->newDataLine[newDataLineCounter++] = (char) uartData->rxBuffer[i];
 		}
 
-		if(controlSystem.echoType == 1)
-			echoMessage(uartData);
+		/*if(controlSystem.echoType == 1)
+			echoMessage(uartData);*/
 
 		uartData->rxIndex = 0;
 		uartData->newDataFlag = 0;
+		uartData->echoFlag = 1;
 
 		controlSystem.uartMessageData = uartData->newDataLine;
 
@@ -56,8 +57,9 @@ char getUartMessage(struct uartDataStr *uartData){
 }
 
 void echoMessage(struct uartDataStr *uartData){
-	if(uartData->newDataFlag == 1){
+	if(uartData->echoFlag == 1){
 		uartTransmitData((uint8_t*)uartData->newDataLine, strlen(uartData->newDataLine));
+		uartData->echoFlag = 0;
 	}
 }
 

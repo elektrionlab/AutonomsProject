@@ -12,6 +12,7 @@
 #include "uartApp.h"
 
 void task2(); // dataların parse edilmesi ve ilgili ayarların yapılması
-
+void dataParser();
+void echoTask();
 
 #endif /* APP_INC_TASK2_H_ */
