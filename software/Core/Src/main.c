@@ -25,11 +25,13 @@
 /* USER CODE BEGIN Includes */
 #include "uartTransport.h"
 #include "uartApp.h"
+#include "system.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 extern struct uartDataStr uartData;
+extern struct System controlSystem;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -71,7 +73,7 @@ int main(void)
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
+	HAL_Init();
 
   /* USER CODE BEGIN Init */
 
@@ -88,6 +90,7 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
+  UserSystemInit();
   uartReceiveIT();
   /* USER CODE END 2 */
 
@@ -98,7 +101,9 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  getUartMessage(&uartData,ECHO);
+	  getUartMessage(&uartData);
+	  task2();
+
 	  //echoMessage(&uartData);
 	//  resetNewDataFlag();
   }

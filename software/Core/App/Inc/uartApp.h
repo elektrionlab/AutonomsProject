@@ -33,7 +33,7 @@ struct uartDataStr{
 
 void resetNewDataFlag();
 void echoMessage(struct uartDataStr *uartData);
-char getUartMessage(struct uartDataStr *uartData, uint8_t echoMode);
+char getUartMessage(struct uartDataStr *uartData);
 void uartDataStorage(uint8_t *rxTempBuffer);
 
 

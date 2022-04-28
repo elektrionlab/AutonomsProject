@@ -9,9 +9,10 @@
 #include "uartTransport.h"
 #include "stdlib.h"
 #include "string.h"
+#include "system.h"
 
 struct uartDataStr uartData;
-
+extern struct System controlSystem;
 
 void uartDataStorage(uint8_t *rxTempBuffer){
 
@@ -27,7 +28,7 @@ void uartDataStorage(uint8_t *rxTempBuffer){
 		uartData.rxIndex = 0;
 }
 
-char getUartMessage(struct uartDataStr *uartData, uint8_t echoMode){
+char getUartMessage(struct uartDataStr *uartData){
 
 	if(uartData->newDataFlag == 1){
 
@@ -38,13 +39,16 @@ char getUartMessage(struct uartDataStr *uartData, uint8_t echoMode){
 			uartData->newDataLine[newDataLineCounter++] = (char) uartData->rxBuffer[i];
 		}
 
-		if(echoMode == 1)
+		if(controlSystem.echoType == 1)
 			echoMessage(uartData);
 
 		uartData->rxIndex = 0;
 		uartData->newDataFlag = 0;
 
+		controlSystem.uartMessageData = uartData->newDataLine;
+
 		free(uartData->newDataLine);
+
 	}
 
 	return *uartData->newDataLine;

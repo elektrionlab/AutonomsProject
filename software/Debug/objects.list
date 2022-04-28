@@ -1,3 +1,5 @@
+"./Core/App/Src/system.o"
+"./Core/App/Src/task2.o"
 "./Core/App/Src/uartApp.o"
 "./Core/App/Src/uartTransport.o"
 "./Core/Src/gpio.o"
