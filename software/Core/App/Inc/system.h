@@ -23,6 +23,10 @@ struct System{
 	uint32_t WordLength;
 	uint32_t Parity;
 	uint32_t StopBits;
+
+	uint32_t newLedTime;
+	uint32_t oldLedTime;
+	uint8_t ledState;
 };
 
 void UserSystemInit(void);

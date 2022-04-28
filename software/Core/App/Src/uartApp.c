@@ -39,9 +39,6 @@ char getUartMessage(struct uartDataStr *uartData){
 			uartData->newDataLine[newDataLineCounter++] = (char) uartData->rxBuffer[i];
 		}
 
-		/*if(controlSystem.echoType == 1)
-			echoMessage(uartData);*/
-
 		uartData->rxIndex = 0;
 		uartData->newDataFlag = 0;
 		uartData->echoFlag = 1;

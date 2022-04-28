@@ -17,4 +17,6 @@ void UserSystemInit(void){
 	controlSystem.echoType = 1;	// echo yapıyor
 	controlSystem.systemState = 1;
 
+	controlSystem.oldLedTime = 0;
+	controlSystem.ledState = 0;
 }

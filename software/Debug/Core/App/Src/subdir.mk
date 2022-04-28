@@ -6,18 +6,21 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../Core/App/Src/system.c \
+../Core/App/Src/task1.c \
 ../Core/App/Src/task2.c \
 ../Core/App/Src/uartApp.c \
 ../Core/App/Src/uartTransport.c 
 
 OBJS += \
 ./Core/App/Src/system.o \
+./Core/App/Src/task1.o \
 ./Core/App/Src/task2.o \
 ./Core/App/Src/uartApp.o \
 ./Core/App/Src/uartTransport.o 
 
 C_DEPS += \
 ./Core/App/Src/system.d \
+./Core/App/Src/task1.d \
 ./Core/App/Src/task2.d \
 ./Core/App/Src/uartApp.d \
 ./Core/App/Src/uartTransport.d 
@@ -30,7 +33,7 @@ Core/App/Src/%.o Core/App/Src/%.su: ../Core/App/Src/%.c Core/App/Src/subdir.mk
 clean: clean-Core-2f-App-2f-Src
 
 clean-Core-2f-App-2f-Src:
-	-$(RM) ./Core/App/Src/system.d ./Core/App/Src/system.o ./Core/App/Src/system.su ./Core/App/Src/task2.d ./Core/App/Src/task2.o ./Core/App/Src/task2.su ./Core/App/Src/uartApp.d ./Core/App/Src/uartApp.o ./Core/App/Src/uartApp.su ./Core/App/Src/uartTransport.d ./Core/App/Src/uartTransport.o ./Core/App/Src/uartTransport.su
+	-$(RM) ./Core/App/Src/system.d ./Core/App/Src/system.o ./Core/App/Src/system.su ./Core/App/Src/task1.d ./Core/App/Src/task1.o ./Core/App/Src/task1.su ./Core/App/Src/task2.d ./Core/App/Src/task2.o ./Core/App/Src/task2.su ./Core/App/Src/uartApp.d ./Core/App/Src/uartApp.o ./Core/App/Src/uartApp.su ./Core/App/Src/uartTransport.d ./Core/App/Src/uartTransport.o ./Core/App/Src/uartTransport.su
 
 .PHONY: clean-Core-2f-App-2f-Src
 
