@@ -10,6 +10,10 @@
 
 #include "main.h"
 
+
+#include "task1.h"
+#include "task2.h"
+
 struct System{
 	char *uartMessageData;
 	uint32_t ledOnTime;

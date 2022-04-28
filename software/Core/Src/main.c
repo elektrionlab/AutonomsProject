@@ -32,6 +32,8 @@
 /* USER CODE BEGIN PTD */
 extern struct uartDataStr uartData;
 extern struct System controlSystem;
+
+uint32_t timer = 0;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -40,7 +42,11 @@ extern struct System controlSystem;
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
+void taskTimer(){
+	timer++;
 
+	ledControl(&timer);
+}
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/

@@ -25,7 +25,7 @@ void ledControl(uint32_t *timer){
 		}
 		else
 		{
-			if((controlSystem.newLedTime - controlSystem.oldLedTime) >= controlSystem.ledOffTime){
+			if((controlSystem.newLedTime - controlSystem.oldLedTime) >= (controlSystem.ledOffTime + controlSystem.ledOnTime)){
 				controlSystem.ledState = 1;
 				controlSystem.oldLedTime = controlSystem.newLedTime;
 				HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
