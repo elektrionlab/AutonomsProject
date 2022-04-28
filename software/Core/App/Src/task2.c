@@ -42,8 +42,12 @@ void dataParser(){
 		controlSystem.echoType = 1;
 		controlSystem.systemState = 1;
 
+		char uartMessageTempData[strlen(controlSystem.uartMessageData)];
+
+		strcpy(uartMessageTempData, controlSystem.uartMessageData);
+
 		int i = 0;
-		char *p = strtok(controlSystem.uartMessageData, "=");
+		char *p = strtok(uartMessageTempData, "=");
 
 		while(p != NULL){
 			parsedData[i++] = p;
