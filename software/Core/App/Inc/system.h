@@ -14,6 +14,14 @@
 #include "task1.h"
 #include "task2.h"
 
+#define TASK1_TIME_MS 10
+#define TASK2_TIME_MS 10
+
+#define LED_STOP_MODE_ON_TIME_MS	1000
+#define	LED_STOP_MODE_OFF_TIME_MS	1000
+
+
+
 struct System{
 	char *uartMessageData;
 	uint32_t ledOnTime;

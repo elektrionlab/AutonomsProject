@@ -10,6 +10,9 @@
 
 #include "main.h"
 
+
+void task1(uint32_t *timer);
+
 void ledControl(uint32_t *timer);
 
 #endif /* APP_INC_TASK1_H_ */

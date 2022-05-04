@@ -44,8 +44,8 @@ uint32_t timer = 0;
 /* USER CODE BEGIN PM */
 void taskTimer(){
 	timer++;
-
-	ledControl(&timer);
+	task1(&timer);
+	task2(&timer);
 }
 /* USER CODE END PM */
 
@@ -107,10 +107,6 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  task2();
-
-	  //echoMessage(&uartData);
-	//  resetNewDataFlag();
   }
   /* USER CODE END 3 */
 }
