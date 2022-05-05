@@ -12,8 +12,7 @@ Figure 1.2 | System first run, UART Echo Output <hr>
 Figure 2.1 | Changing LED On and LED Off Time <hr>
 
 <img src="images/4.png" width="50%">
-Figure 2.2 | Changing LED On and LED Off Time, LED On: 450ms / LED Off Time: 100ms <hr><img width="652" alt="image" src="https://user-images.githubusercontent.com/104465848/166947234-dcff6559-ec36-40f7-8e76-cc238031e553.png">
-
+Figure 2.2 | Changing LED On and LED Off Time, LED On: 450ms / LED Off Time: 100ms <hr>
 
 <img src="images/5.png" width="50%">
 Figure 3.1 | Sending the "stop" command, Echo Taks Terminates <hr>
